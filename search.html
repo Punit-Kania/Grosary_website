@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Grocery</title>
+
+<link rel="stylesheet" href="bootstrap v4/css/bootstrap.min.css">
+<script src="jquery-3.7.1.min.js"></script>
+
+<style>
+
+body{
+font-family: Arial;
+background-color: aliceblue;
+}
+
+.search-box{
+width:500px;
+margin:auto;
+margin-top:100px;
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0px 0px 10px gray;
+}
+
+#result{
+margin-top:20px;
+}
+
+.card{
+margin-top:10px;
+box-shadow:0px 0px 8px gray;
+}
+
+</style>
+
+<script>
+
+
+
+function searchItem(){
+
+let category = $("#cat").val();
+
+$("#result").html("");
+
+$.ajax({
+
+url:"item.json",   // corrected name
+type:"GET",
+dataType:"json",
+
+success:function(data){
+
+let output="";
+
+for(let i=0;i<data.items.length;i++){
+
+if(data.items[i].category == category){
+
+output += `
+<div class="card p-3">
+<h5>${data.items[i].name}</h5>
+<p>Category: ${data.items[i].category}</p>
+<p>Price: ₹${data.items[i].price}</p>
+</div>
+`;
+
+}
+
+}
+
+if(output==""){
+output="<p class='text-danger'>No items found</p>";
+}
+
+$("#result").html(output);
+
+},
+
+error:function(){
+alert("JSON file not loading");
+}
+
+});
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+<a href="#" class="navbar-brand font-weight-bold">Grocery Store</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+<li class="nav-item"><a href="register.html" class="nav-link">Register</a></li>
+<li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+
+<li class="nav-item"><a href="search.html" class="nav-link">Search</a></li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- Search Box -->
+
+<div class="search-box">
+
+<h3 class="text-center">Search Grocery By Category</h3>
+
+<select id="cat" class="form-control">
+<option value="">Select Category</option>
+<option value="Fruits">Fruits</option>
+<option value="Dairy">Dairy</option>
+<option value="Grains">Grains</option>
+</select>
+
+<br>
+
+<button class="btn btn-success btn-block" onclick="searchItem()">Search</button>
+
+<div id="result"></div>
+
+</div>
+
+</body>
+</html>

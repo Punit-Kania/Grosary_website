@@ -1,0 +1,10 @@
+{
+"items":[
+{"name":"Apple","category":"Fruits","price":80},
+{"name":"Banana","category":"Fruits","price":40},
+{"name":"Milk","category":"Dairy","price":30},
+{"name":"Cheese","category":"Dairy","price":120},
+{"name":"Rice","category":"Grains","price":60},
+{"name":"Wheat","category":"Grains","price":50}
+]
+}
