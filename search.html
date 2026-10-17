@@ -6,7 +6,6 @@
 <title>Search Grocery</title>
 
 <link rel="stylesheet" href="bootstrap v4/css/bootstrap.min.css">
-<script src="jquery-3.7.1.min.js"></script>
 
 <style>
 
@@ -42,17 +41,19 @@ box-shadow:0px 0px 8px gray;
 
 function searchItem(){
 
-let category = $("#cat").val();
+const category = document.getElementById("cat").value;
+const result = document.getElementById("result");
 
-$("#result").html("");
+result.innerHTML = "";
 
-$.ajax({
-
-url:"item.json",   // corrected name
-type:"GET",
-dataType:"json",
-
-success:function(data){
+fetch("item.json")
+.then(response => {
+if(!response.ok){
+throw new Error("Could not load item.json");
+}
+return response.json();
+})
+.then(data => {
 
 let output="";
 
@@ -76,14 +77,11 @@ if(output==""){
 output="<p class='text-danger'>No items found</p>";
 }
 
-$("#result").html(output);
+result.innerHTML = output;
 
-},
-
-error:function(){
-alert("JSON file not loading");
-}
-
+})
+.catch(() => {
+result.innerHTML = "<p class='text-danger'>Could not load item.json. Open this page through a local web server.</p>";
 });
 
 }
