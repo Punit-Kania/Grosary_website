@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery Store</title>
+
+<link rel="stylesheet" href="./bootstrap v4/css/bootstrap.min.css">
+
+<style>
+
+body{
+font-family: Arial;
+background-color: aliceblue;
+}
+
+.banner{
+background: url("bas.jfif");
+background-size: cover;
+background-position: center;
+height: 350px;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.banner h1{
+background: rgba(0,0,0,0.6);
+padding:20px;
+border-radius:8px;
+}
+
+.container{
+margin-top:40px;
+}
+
+.card{
+box-shadow:0px 0px 10px gray;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+footer{
+background:#343a40;
+color:white;
+text-align:center;
+padding:10px;
+margin-top:30px;
+}
+
+</style>
+
+<script>
+
+function addCart(item){
+alert(item + " added to cart");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+<a href="#" class="navbar-brand font-weight-bold">Grocery Store</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+<a href="index.html" class="nav-link">Home</a>
+</li>
+
+<li class="nav-item">
+<a href="register.html" class="nav-link">Register</a>
+</li>
+
+<li class="nav-item">
+<a href="login.html" class="nav-link">Login</a>
+</li>
+
+
+
+<li class="nav-item">
+<a href="search.html" class="nav-link">Search</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- Banner -->
+
+<div class="banner">
+
+<h1>Fresh Grocery Privide here </h1>
+
+</div>
+
+
+<!-- Grocery Categories -->
+
+<div class="container">
+
+<h2 class="text-center mb-4">Popular Categories</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiamKY-e-CQ-3sgQf5IjHB2bmVFKr9280YPA&s" class="card-img-top">
+
+<div class="card-body text-center">
+
+<h5>Fruits</h5>
+
+<button class="btn btn-success" onclick="addCart('Fruits')">Add</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card">
+
+<img src="https://thumbs.dreamstime.com/b/vegetable-market-6333220.jpg  " class="card-img-top">
+
+<div class="card-body text-center">
+
+<h5>Vegetables</h5>
+
+<button class="btn btn-success" onclick="addCart('Vegetables')">Add</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Icsr46JfMkpXW1z1jIEbkdfCwc-n4cWvng&s" class="card-img-top">
+
+<div class="card-body text-center">
+
+<h5>Dairy</h5>
+
+<button class="btn btn-success" onclick="addCart('Dairy')">Add</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card">
+
+<img src="https://www.healthyfood.com/wp-content/uploads/2017/03/What-does-whole-grain-mean.jpg" class="card-img-top">
+
+<div class="card-body text-center">
+
+<h5>Grains</h5>
+
+<button class="btn btn-success" onclick="addCart('Grains')">Add</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 Grocery Store | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
